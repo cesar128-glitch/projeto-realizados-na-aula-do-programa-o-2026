@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAME DO SABER</title>
+    <title>Game do Saber</title>
     <style>
+        /* Reset simples */
         * {
             margin: 0;
             padding: 0;
@@ -13,111 +14,132 @@
         }
 
         body {
-            background-color: #f0f2f5;
-            padding: 20px;
+            background-color: #eef2f5;
+            color: #333333;
             display: flex;
             justify-content: center;
+            padding: 20px;
         }
 
-        .main-card {
-            max-width: 900px;
+        /* Cartão principal da página */
+        .site-wrapper {
+            max-width: 850px;
             width: 100%;
-            background: #ffffff;
-            padding: 30px;
+            background-color: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
             text-align: center;
         }
 
+        header {
+            margin-bottom: 25px;
+        }
+
         h1 {
-            color: #1a365d;
-            font-size: 2rem;
-            margin-bottom: 5px;
+            color: #1d4ed8;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
         }
 
         .subtitulo {
-            color: #2b6cb0;
-            font-weight: bold;
-            margin-bottom: 20px;
+            color: #3b82f6;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 5px;
         }
 
-        .pergunta {
-            background-color: #ebf8ff;
-            border-left: 5px solid #3182ce;
+        .banner-pergunta {
+            background-color: #eff6ff;
+            border: 2px solid #93c5fd;
+            color: #1e40af;
             padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 30px;
-            font-weight: bold;
-            color: #2b6cb0;
-        }
-
-        .galeria-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .card-item {
-            background: #fafafa;
-            border: 1px solid #e2e8f0;
             border-radius: 8px;
-            padding: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 30px;
         }
 
-        .card-item img {
+        /* Galeria que se ajusta sozinha sem quebrar */
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            flex: 1 1 220px;
+            max-width: 250px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .card img {
             width: 100%;
-            height: 180px;
+            height: 170px;
             object-fit: cover;
-            border-radius: 6px;
             display: block;
         }
 
-        .card-item p {
-            margin-top: 10px;
+        .card p {
+            padding: 12px;
+            font-weight: 600;
             font-size: 0.9rem;
-            font-weight: bold;
-            color: #2d3748;
+            color: #1e293b;
         }
 
-        .texto-final {
+        footer {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+
+        footer p {
+            color: #475569;
             line-height: 1.6;
-            color: #4a5568;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="main-card">
-        <h1>GAME DO SABER</h1>
-        <p class="subtitulo">NOSSA ESCOLA, NOSSO COMPROMISSO</p>
+    <div class="site-wrapper">
+        <header>
+            <h1>GAME DO SABER</h1>
+            <p class="subtitulo">NOSSA ESCOLA, NOSSO COMPROMISSO</p>
+        </header>
 
-        <div class="pergunta">
-            O QUE NÓS PODEMOS FAZER PARA TORNAR NOSSA ESCOLA AINDA MELHOR?
+        <div class="banner-pergunta">
+            O QUE NÓS PODEMOS FAZER PARA TORNAR A NOSSA ESCOLA AINDA MELHOR?
         </div>
 
-        <div class="galeria-grid">
-            <div class="card-item">
-                <img src="days.jpeg" alt="Ventilador">
+        <main class="galeria">
+            <article class="card">
+                <img src="days.jpeg" alt="Antes e depois do ventilador">
                 <p>Antes e depois: Ventilador</p>
-            </div>
+            </article>
 
-            <div class="card-item">
-                <img src="5236443161723305068.jpg" alt="Manutenção">
+            <article class="card">
+                <img src="5236443161723305068.jpg" alt="Antes e depois da manutenção">
                 <p>Antes e depois: Manutenção</p>
-            </div>
+            </article>
 
-            <div class="card-item">
-                <img src="7278812297501217892.jpg" alt="Conservação">
+            <article class="card">
+                <img src="7278812297501217892.jpg" alt="Antes e depois da conservação">
                 <p>Antes e depois: Conservação</p>
-            </div>
-        </div>
+            </article>
+        </main>
 
-        <p class="texto-final">
-            O cuidado com o patrimônio da escola é responsabilidade de todos os estudantes e funcionários.
-            Os bens duráveis são importantes para o desenvolvimento dos estudantes e geram um ambiente melhor para todos!
-        </p>
+        <footer>
+            <p>
+                O cuidado com o patrimônio da escola é responsabilidade de todos os estudantes e funcionários.
+                Os bens duráveis são importantes para o desenvolvimento dos estudantes e geram um ambiente melhor para todos!
+            </p>
+        </footer>
     </div>
 
 </body>
