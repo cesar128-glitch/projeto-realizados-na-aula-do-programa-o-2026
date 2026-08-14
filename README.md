@@ -46,28 +46,26 @@ dos estudantes e gera um ambiente melhor para todos os envolvidos.</p>
 </div>
 </body>
 </html>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAME DO SABER</title>
+    <title>Game do Saber</title>
     
     <style>
-        /* Reset e Fontes */
+        /* Reset Básico */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: #f0f2f5;
+            color: #1c1e21;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -75,129 +73,132 @@ dos estudantes e gera um ambiente melhor para todos os envolvidos.</p>
             padding: 20px;
         }
 
-        #container {
+        /* Card Principal */
+        main {
+            background-color: #ffffff;
             max-width: 900px;
             width: 100%;
-            background: #ffffff;
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
             text-align: center;
         }
 
         /* Cabeçalho */
-        header h1 {
-            color: #1e3c72;
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        header .subtitle {
-            font-weight: bold;
-            color: #2a5298;
+        header {
             margin-bottom: 25px;
+        }
+
+        h1 {
+            color: #0d47a1;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .subtitulo {
+            color: #1565c0;
+            font-weight: 600;
             font-size: 1.1rem;
+            letter-spacing: 0.5px;
         }
 
-        .question {
-            background-color: #eef2f5;
+        .pergunta-chave {
+            background-color: #e3f2fd;
+            border-left: 4px solid #1565c0;
             padding: 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            color: #444;
+            border-radius: 6px;
             margin-bottom: 30px;
-            border-left: 5px solid #1e3c72;
+            font-weight: bold;
+            color: #0d47a1;
         }
 
-        /* Seção de Galeria de Impacto (Cards) */
-        .gallery {
+        /* Galeria de Fotos */
+        .galeria {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            gap: 20px;
             margin-bottom: 30px;
         }
 
-        .card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card figcaption {
-            padding: 15px;
-            font-weight: bold;
-            color: #333;
+        .card-foto {
             background-color: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        /* Mensagem Final */
-        .footer-text {
+        .card-foto:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .card-foto img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover; /* Mantém a proporção da imagem sem esticar */
+            display: block;
+        }
+
+        .card-foto figcaption {
+            padding: 12px;
+            font-weight: 600;
+            color: #424242;
+            font-size: 0.95rem;
+        }
+
+        /* Rodapé com Mensagem */
+        footer p {
             line-height: 1.6;
-            font-size: 1.05rem;
-            color: #555;
-            margin-top: 20px;
+            color: #555555;
+            font-size: 1rem;
         }
 
-        .highlight {
-            font-weight: bold;
-            color: #1e3c72;
+        footer strong {
+            color: #0d47a1;
         }
     </style>
 </head>
 
 <body>
 
-    <div id="container">
-
+    <main>
         <header>
-            <h1>GAME DO SABER</h1>
-            <p class="subtitle">NOSSA ESCOLA, NOSSO COMPROMISSO</p>
+            <h1>Game do Saber</h1>
+            <p class="subtitulo">NOSSA ESCOLA, NOSSO COMPROMISSO</p>
         </header>
 
-        <div class="question">
-            <u>O QUE NÓS PODEMOS FAZER PARA TORNAR NOSSA ESCOLA AINDA MELHOR?</u>
+        <div class="pergunta-chave">
+            O QUE NÓS PODEMOS FAZER PARA TORNAR A NOSSA ESCOLA AINDA MELHOR?
         </div>
 
-        <section class="gallery">
-            <figure class="card">
-                <img src="days.jpeg" alt="Antes e depois do ventilador">
-                <figcaption>Antes e depois: "Ventilador"</figcaption>
+        <section class="galeria">
+            <figure class="card-foto">
+                <img src="days.jpeg" alt="Antes e depois da manutenção do ventilador">
+                <figcaption>Antes e depois: Ventilador</figcaption>
             </figure>
 
-            <figure class="card">
-                <img src="5236443161723305068.jpg" alt="Ação de melhoria na escola">
-                <figcaption>Antes e depois: Manutenção</figcaption>
+            <figure class="card-foto">
+                <img src="5236443161723305068.jpg" alt="Ação de melhoria e conservação do espaço escolar">
+                <figcaption>Antes e depois: Conservação</figcaption>
             </figure>
 
-            <figure class="card">
-                <img src="7278812297501217892.jpg" alt="Cuidado com o espaço escolar">
-                <figcaption>Antes e depois: Espaço Renovado</figcaption>
+            <figure class="card-foto">
+                <img src="7278812297501217892.jpg" alt="Revitalização do património escolar">
+                <figcaption>Antes e depois: Revitalização</figcaption>
             </figure>
         </section>
 
         <footer>
-            <p class="footer-text">
-                O <span class="highlight">cuidado com o patrimônio da escola</span> é responsabilidade de todos os estudantes e funcionários.<br>
-                Os bens duráveis são importantes para o desenvolvimento dos alunos e geram um ambiente muito melhor para todos!
+            <p>
+                O <strong>cuidado com o património da escola</strong> é responsabilidade de todos os estudantes e funcionários. 
+                Os bens duradouros são fundamentais para o desenvolvimento de todos e garantem um ambiente escolar muito melhor!
             </p>
         </footer>
-
-    </div>
+    </main>
 
 </body>
 </html>
