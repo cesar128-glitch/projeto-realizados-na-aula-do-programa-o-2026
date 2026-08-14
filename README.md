@@ -10,7 +10,7 @@
 <style>
 div {
 height: 100vh;
-display: block;
+display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
