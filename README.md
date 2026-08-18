@@ -84,8 +84,8 @@
         }
 
         .card-foto {
-            flex: 1 1 260px;
-            max-width: 280px;
+            flex: 1 1 240px;
+            max-width: 260px;
             background-color: #334155;
             border-radius: 12px;
             overflow: hidden;
@@ -112,7 +112,7 @@
             color: #f1f5f9;
         }
 
-        /* Seção de Vídeos do YouTube (Propagandas/Recomendações) */
+        /* Seção de Vídeos do YouTube */
         .youtube-section {
             background-color: #0f172a;
             padding: 25px;
@@ -199,6 +199,7 @@
             O QUE NÓS PODEMOS FAZER PARA TORNAR A NOSSA ESCOLA AINDA MELHOR?
         </div>
 
+        <!-- Galeria de Fotos Com os 5 Itens -->
         <h2 class="secao-titulo">📸 Galeria do Projeto</h2>
         <div class="galeria">
             <div class="card-foto">
@@ -213,8 +214,17 @@
                 <img src="7278812297501217892.jpg" alt="Conservação">
                 <p>Antes e depois: Conservação</p>
             </div>
+            <div class="card-foto">
+                <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.png" alt="Ação do Projeto 1">
+                <p>Antes e depois: Ação 1</p>
+            </div>
+            <div class="card-foto">
+                <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Ação do Projeto 2">
+                <p>Antes e depois: Ação 2</p>
+            </div>
         </div>
 
+        <!-- Seção de Vídeos Recomendados (YouTube) -->
         <div class="youtube-section">
             <h2 class="secao-titulo">🎬 Vídeos e Recomendações</h2>
             <div class="video-grid">
@@ -227,6 +237,7 @@
             </div>
         </div>
 
+        <!-- Seção de Avaliação -->
         <div class="avaliacao-section">
             <h2 style="color: #ffffff;">⭐ Avalie o Nosso Projeto</h2>
             <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 5px;">O que você achou desta iniciativa na escola?</p>
@@ -247,6 +258,7 @@
         </footer>
     </div>
 
+    <!-- Script da Avaliação de Estrelas -->
     <script>
         function avaliar(nota) {
             const estrelas = document.querySelectorAll('#estrelas span');
