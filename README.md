@@ -3,151 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game do Saber</title>
+    <title>Game do Saber - Preservação Escolar</title>
     <style>
-        /* Reset Básico */
+        :root {
+            --bg-main: #0b1329;
+            --bg-card: #1e293b;
+            --bg-hover: #334155;
+            --accent: #38bdf8;
+            --accent-gradient: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --star-gold: #facc15;
+            --border-color: #334155;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            padding: 20px;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            padding: 30px 15px;
             display: flex;
             justify-content: center;
+            min-height: 100vh;
         }
 
-        /* Container Principal */
-        .wrapper {
-            max-width: 950px;
+        .container {
+            max-width: 960px;
             width: 100%;
-            background-color: #1e293b;
-            border-radius: 16px;
-            padding: 35px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 35px 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        /* Cabeçalho */
         header {
             text-align: center;
             margin-bottom: 30px;
-            border-bottom: 2px solid #334155;
             padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         h1 {
-            color: #38bdf8;
-            font-size: 2.4rem;
+            color: var(--accent);
+            font-size: 2.2rem;
+            font-weight: 800;
             letter-spacing: 1px;
+            margin-bottom: 6px;
         }
 
         .subtitulo {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            margin-top: 5px;
-            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
         }
 
-        /* Seção de Pergunta */
-        .pergunta-box {
-            background: linear-gradient(135deg, #0284c7, #2563eb);
-            padding: 18px;
-            border-radius: 10px;
+        .banner {
+            background: var(--accent-gradient);
+            color: #ffffff;
+            padding: 20px 24px;
+            border-radius: 14px;
             text-align: center;
-            font-weight: bold;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 1.05rem;
             margin-bottom: 35px;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.25);
         }
 
-        /* Títulos das Seções */
-        .secao-titulo {
-            color: #38bdf8;
-            font-size: 1.4rem;
+        .titulo-secao {
+            color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 700;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        /* Galeria de Fotos da Escola */
         .galeria {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
-            justify-content: center;
             margin-bottom: 40px;
         }
 
-        .card-foto {
-            flex: 1 1 240px;
-            max-width: 260px;
-            background-color: #334155;
+        .card {
+            background-color: #0f172a;
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #475569;
-            transition: transform 0.2s ease;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
-        .card-foto:hover {
+        .card:hover {
             transform: translateY(-5px);
+            border-color: var(--accent);
         }
 
-        .card-foto img {
+        .img-wrapper {
             width: 100%;
-            height: 180px;
+            height: 160px;
+            background-color: var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        .card-foto p {
-            padding: 12px;
+        .card p {
+            padding: 14px 10px;
             text-align: center;
             font-weight: 600;
-            font-size: 0.95rem;
-            color: #f1f5f9;
+            font-size: 0.85rem;
+            color: #e2e8f0;
         }
 
-        /* Seção de Vídeos do YouTube */
-        .youtube-section {
+        .videos-container {
             background-color: #0f172a;
             padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #334155;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
             margin-bottom: 40px;
         }
 
         .video-grid {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            justify-content: center;
         }
 
-        .video-card {
-            flex: 1 1 280px;
-            max-width: 400px;
+        .video-box {
             aspect-ratio: 16 / 9;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
             background-color: #000;
         }
 
-        .video-card iframe {
+        .video-box iframe {
             width: 100%;
             height: 100%;
-            border: none;
+            border: 0;
         }
 
-        /* Sistema de Avaliação (Estrelas) */
-        .avaliacao-section {
-            background-color: #334155;
+        .avaliacao {
+            background-color: #0f172a;
             padding: 25px;
-            border-radius: 12px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
             text-align: center;
             margin-bottom: 30px;
         }
@@ -156,131 +171,140 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            font-size: 2rem;
+            font-size: 2.2rem;
             cursor: pointer;
             margin: 15px 0;
-            color: #64748b;
+            color: var(--border-color);
+            user-select: none;
         }
 
         .estrelas span {
-            transition: color 0.2s;
+            transition: color 0.15s ease, transform 0.15s ease;
         }
 
-        .estrelas span:hover,
+        .estrelas span:hover {
+            transform: scale(1.2);
+        }
+
         .estrelas span.ativo {
-            color: #facc15;
+            color: var(--star-gold);
         }
 
-        .mensagem-avaliacao {
+        .mensagem {
             font-size: 0.95rem;
-            color: #cbd5e1;
+            color: var(--accent);
             min-height: 24px;
+            font-weight: 600;
         }
 
-        /* Rodapé */
         footer {
             text-align: center;
-            padding-top: 15px;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
-            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
+    <div class="container">
         <header>
-            <h1>🎮 GAME DO SABER</h1>
+            <h1>GAME DO SABER</h1>
             <p class="subtitulo">NOSSA ESCOLA, NOSSO COMPROMISSO</p>
         </header>
 
-        <div class="pergunta-box">
+        <div class="banner">
             O QUE NÓS PODEMOS FAZER PARA TORNAR A NOSSA ESCOLA AINDA MELHOR?
         </div>
 
-        <!-- Galeria de Fotos Com os 5 Itens -->
-        <h2 class="secao-titulo">📸 Galeria do Projeto</h2>
+        <h2 class="titulo-secao">Galeria do Projeto</h2>
         <div class="galeria">
-            <div class="card-foto">
-                <img src="days.jpeg" alt="Ventilador">
+            <div class="card">
+                <div class="img-wrapper">
+                    <img src="days.jpeg" alt="Ventilador" onerror="this.style.display='none'; this.parentElement.innerHTML='Imagem Indisponível';">
+                </div>
                 <p>Antes e depois: Ventilador</p>
             </div>
-            <div class="card-foto">
-                <img src="5236443161723305068.jpg" alt="Manutenção">
+            <div class="card">
+                <div class="img-wrapper">
+                    <img src="5236443161723305068.jpg" alt="Manutenção" onerror="this.style.display='none'; this.parentElement.innerHTML='Imagem Indisponível';">
+                </div>
                 <p>Antes e depois: Manutenção</p>
             </div>
-            <div class="card-foto">
-                <img src="7278812297501217892.jpg" alt="Conservação">
+            <div class="card">
+                <div class="img-wrapper">
+                    <img src="7278812297501217892.jpg" alt="Conservação" onerror="this.style.display='none'; this.parentElement.innerHTML='Imagem Indisponível';">
+                </div>
                 <p>Antes e depois: Conservação</p>
             </div>
-            <div class="card-foto">
-                <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.png" alt="Ação do Projeto 1">
+            <div class="card">
+                <div class="img-wrapper">
+                    <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.png" alt="Ação 1" onerror="this.style.display='none'; this.parentElement.innerHTML='Imagem Indisponível';">
+                </div>
                 <p>Antes e depois: Ação 1</p>
             </div>
-            <div class="card-foto">
-                <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Ação do Projeto 2">
+            <div class="card">
+                <div class="img-wrapper">
+                    <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Ação 2" onerror="this.style.display='none'; this.parentElement.innerHTML='Imagem Indisponível';">
+                </div>
                 <p>Antes e depois: Ação 2</p>
             </div>
         </div>
 
-        <!-- Seção de Vídeos Recomendados (YouTube) -->
-        <div class="youtube-section">
-            <h2 class="secao-titulo">🎬 Vídeos e Recomendações</h2>
+        <div class="videos-container">
+            <h2 class="titulo-secao">Vídeos Recomendados</h2>
             <div class="video-grid">
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Recomendado 1" allowfullscreen></iframe>
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo 1" allowfullscreen></iframe>
                 </div>
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/L_LUpnjgPso" title="Vídeo Recomendado 2" allowfullscreen></iframe>
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/L_LUpnjgPso" title="Vídeo 2" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
 
-        <!-- Seção de Avaliação -->
-        <div class="avaliacao-section">
-            <h2 style="color: #ffffff;">⭐ Avalie o Nosso Projeto</h2>
-            <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 5px;">O que você achou desta iniciativa na escola?</p>
-            
+        <div class="avaliacao">
+            <h2 class="titulo-secao" style="text-align: center;">Avalie o Projeto</h2>
             <div class="estrelas" id="estrelas">
-                <span onclick="avaliar(1)">★</span>
-                <span onclick="avaliar(2)">★</span>
-                <span onclick="avaliar(3)">★</span>
-                <span onclick="avaliar(4)">★</span>
-                <span onclick="avaliar(5)">★</span>
+                <span onclick="votar(1)">★</span>
+                <span onclick="votar(2)">★</span>
+                <span onclick="votar(3)">★</span>
+                <span onclick="votar(4)">★</span>
+                <span onclick="votar(5)">★</span>
             </div>
-            <div class="mensagem-avaliacao" id="mensagemAvaliacao">Clique nas estrelas para avaliar!</div>
+            <div class="mensagem" id="msg">Clique nas estrelas para avaliar!</div>
         </div>
 
         <footer>
-            O cuidado com o patrimônio da escola é responsabilidade de todos os estudantes e funcionários.<br>
+            O cuidado com o patrimônio da escola é responsabilidade de todos os alunos e comunidade.<br>
             © 2026 Game do Saber.
         </footer>
     </div>
 
-    <!-- Script da Avaliação de Estrelas -->
     <script>
-        function avaliar(nota) {
-            const estrelas = document.querySelectorAll('#estrelas span');
-            const mensagem = document.getElementById('mensagemAvaliacao');
+        function votar(qtd) {
+            const itens = document.querySelectorAll('#estrelas span');
+            const txt = document.getElementById('msg');
             
-            estrelas.forEach((estrela, index) => {
-                if (index < nota) {
-                    estrela.classList.add('ativo');
+            itens.forEach((el, idx) => {
+                if (idx < qtd) {
+                    el.classList.add('ativo');
                 } else {
-                    estrela.classList.remove('ativo');
+                    el.classList.remove('ativo');
                 }
             });
 
-            const textos = [
-                "Poxa! Vamos trabalhar para melhorar. 😞",
-                "Obrigado pelo feedback! Vamos evoluir. 😐",
-                "Legal! Bom ver seu apoio. 🙂",
-                "Muito bom! Que legal que você gostou! 😀",
-                "Incrível! Muito obrigado pela nota máxima! 🔥"
+            const respostas = [
+                "Obrigado! Vamos trabalhar para melhorar.",
+                "Agradecemos o retorno! Vamos avançar.",
+                "Que bom que gostou do projeto!",
+                "Muito obrigado pelo apoio!",
+                "Excelente! Nota máxima para a nossa escola!"
             ];
 
-            mensagem.textContent = textos[nota - 1];
+            txt.textContent = respostas[qtd - 1];
         }
     </script>
 
