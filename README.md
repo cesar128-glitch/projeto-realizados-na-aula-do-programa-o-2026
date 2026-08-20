@@ -1,4 +1,3 @@
-HTML
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -45,7 +44,6 @@ HTML
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
-        /* CABEÇALHO */
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -80,7 +78,6 @@ HTML
             letter-spacing: 2px;
         }
 
-        /* BANNER */
         .banner {
             background: var(--accent-gradient);
             color: #ffffff;
@@ -94,7 +91,6 @@ HTML
             line-height: 1.5;
         }
 
-        /* TÍTULOS DE SEÇÃO */
         .titulo-secao {
             color: var(--accent-color);
             font-size: 1.35rem;
@@ -105,7 +101,6 @@ HTML
             gap: 10px;
         }
 
-        /* GALERIA 2x2 PERFEITA */
         .galeria {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -164,7 +159,6 @@ HTML
             background-color: var(--bg-card);
         }
 
-        /* VÍDEOS */
         .videos-container {
             background-color: var(--bg-card);
             padding: 30px;
@@ -193,7 +187,6 @@ HTML
             border: 0;
         }
 
-        /* AVALIAÇÃO */
         .avaliacao {
             background-color: var(--bg-card);
             padding: 30px;
@@ -234,7 +227,6 @@ HTML
             font-weight: 600;
         }
 
-        /* RODAPÉ */
         footer {
             text-align: center;
             padding-top: 20px;
@@ -248,7 +240,6 @@ HTML
 <body>
 
     <div class="container">
-        <!-- CABEÇALHO -->
         <header>
             <div class="header-title">
                 <span>🎮</span>
@@ -257,44 +248,41 @@ HTML
             <p class="subtitulo">NOSSA ESCOLA, NOSSO COMPROMISSO</p>
         </header>
 
-        <!-- BANNER DE DESTAQUE -->
         <div class="banner">
             O QUE NÓS PODEMOS FAZER PARA TORNAR A NOSSA ESCOLA AINDA MELHOR?
         </div>
 
-        <!-- GALERIA DO PROJETO (4 CARDS EM GRID 2x2) -->
         <h2 class="titulo-secao">📸 Galeria do Projeto</h2>
         <div class="galeria">
             <div class="card">
                 <div class="img-box">
-                    <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.png" alt="Antes: Ventilador" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/1b273d/38bdf8?text=Antes:+Ventilador';">
+                    <img src="Gemini_Generated_Image_yf6xrmyf6xrmyl6x.jpg" alt="Antes: Ventilador Antigo" onerror="this.onerror=null; this.src='Gemini_Generated_Image_yf6xrmyf6xrmyl6x.png';">
                 </div>
                 <p>Antes: Ventilador Antigo</p>
             </div>
 
             <div class="card">
                 <div class="img-box">
-                    <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Depois: Ventilador Novo" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/1b273d/38bdf8?text=Depois:+Ventilador+Novo';">
+                    <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.jpg" alt="Depois: Ventilador Novo" onerror="this.onerror=null; this.src='Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png';">
                 </div>
                 <p>Depois: Ventilador Novo</p>
             </div>
 
             <div class="card">
                 <div class="img-box">
-                    <img src="5236443161723305068.jpg" alt="Antes e depois: Manutenção" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/1b273d/38bdf8?text=Manuten%C3%A7%C3%A3o';">
+                    <img src="5236443161723305068.jpg" alt="Antes e depois: Manutenção">
                 </div>
                 <p>Antes e depois: Manutenção</p>
             </div>
 
             <div class="card">
                 <div class="img-box">
-                    <img src="7278812297501217892.jpg" alt="Antes e depois: Conservação" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/1b273d/38bdf8?text=Conserva%C3%A7%C3%A3o';">
+                    <img src="7278812297501217892.jpg" alt="Antes e depois: Conservação">
                 </div>
                 <p>Antes e depois: Conservação</p>
             </div>
         </div>
 
-        <!-- VÍDEOS -->
         <div class="videos-container">
             <h2 class="titulo-secao">🎬 Vídeos e Recomendações</h2>
             <div class="video-grid">
@@ -307,7 +295,6 @@ HTML
             </div>
         </div>
 
-        <!-- AVALIAÇÃO INTERATIVA -->
         <div class="avaliacao">
             <h2 class="titulo-secao" style="justify-content: center;">⭐ Avalie o Nosso Projeto</h2>
             <div class="estrelas" id="estrelas">
@@ -320,14 +307,12 @@ HTML
             <div class="mensagem" id="msg">Clique nas estrelas para avaliar!</div>
         </div>
 
-        <!-- RODAPÉ -->
         <footer>
             O cuidado com o patrimônio da escola é responsabilidade de todos os estudantes e comunidade.<br>
             © 2026 Game do Saber.
         </footer>
     </div>
 
-    <!-- JAVASCRIPT DAS ESTRELAS -->
     <script>
         function votar(qtd) {
             const itens = document.querySelectorAll('#estrelas span');
