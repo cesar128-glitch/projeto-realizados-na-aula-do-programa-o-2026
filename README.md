@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -235,6 +235,14 @@
             font-size: 0.85rem;
             line-height: 1.6;
         }
+
+        /* Oculta textos e links automáticos do GitHub Pages no final da página */
+        a[href*="github.com"], 
+        .site-footer, 
+        body > div:not(.container), 
+        body > footer:not(.container) {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -335,20 +343,12 @@
                 }
             });
 
-            const respostas = [
-                "Obrigado pelo feedback! Redirecionando em instantes...",
-                "Agradecemos a sua opinião! Redirecionando em instantes...",
-                "Que bom que gostou das melhorias! Preparando a música...",
-                "Muito obrigado pelo apoio! Abrindo o vídeo...",
-                "Excelente! Nota máxima! 🎵 Abrindo o clipe clássico dos anos 90..."
-            ];
+            txt.textContent = "Obrigado pela avaliação! Redirecionando para a música...";
 
-            txt.textContent = respostas[qtd - 1];
-
-            // Redireciona para o vídeo de "Smash Mouth - All Star (1999)" após 1.5 segundos
+            // Redireciona na própria aba após 1 segundo (não é bloqueado pelos navegadores)
             setTimeout(() => {
-                window.open('https://www.youtube.com/watch?v=L_jWHffIx5E', '_blank');
-            }, 1500);
+                window.location.href = 'https://www.youtube.com/watch?v=L_jWHffIx5E';
+            }, 1000);
         }
     </script>
 
