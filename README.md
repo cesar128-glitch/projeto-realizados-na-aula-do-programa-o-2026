@@ -336,14 +336,19 @@
             });
 
             const respostas = [
-                "Obrigado pelo feedback! Vamos trabalhar para melhorar.",
-                "Agradecemos a sua opinião! Vamos continuar avançando.",
-                "Que bom que gostou das melhorias da escola!",
-                "Muito obrigado pelo apoio ao nosso projeto!",
-                "Excelente! Nota máxima para a nossa escola! 🎉"
+                "Obrigado pelo feedback! Redirecionando em instantes...",
+                "Agradecemos a sua opinião! Redirecionando em instantes...",
+                "Que bom que gostou das melhorias! Preparando a música...",
+                "Muito obrigado pelo apoio! Abrindo o vídeo...",
+                "Excelente! Nota máxima! 🎵 Abrindo o clipe clássico dos anos 90..."
             ];
 
             txt.textContent = respostas[qtd - 1];
+
+            // Redireciona para o vídeo de "Smash Mouth - All Star (1999)" após 1.5 segundos
+            setTimeout(() => {
+                window.open('https://www.youtube.com/watch?v=L_jWHffIx5E', '_blank');
+            }, 1500);
         }
     </script>
 
