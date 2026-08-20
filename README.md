@@ -256,14 +256,14 @@
         <div class="galeria">
             <div class="card">
                 <div class="img-box">
-                    <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Antes: Ventilador Antigo" onerror="this.onerror=null; this.src='Gemini_Generated_Image_7yo3fo7yo3fo7yo3.jpg';">
+                    <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Antes: Ventilador Antigo">
                 </div>
                 <p>Antes: Ventilador Antigo</p>
             </div>
 
             <div class="card">
                 <div class="img-box">
-                    <img src="Gemini_Generated_Image_yf6xrmyf6xrmyl6x.png" alt="Depois: Ventilador Novo" onerror="this.onerror=null; this.src='Gemini_Generated_Image_yf6xrmyf6xrmyl6x.jpg';">
+                    <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.png" alt="Depois: Ventilador Novo">
                 </div>
                 <p>Depois: Ventilador Novo</p>
             </div>
