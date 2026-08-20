@@ -256,28 +256,28 @@
         <div class="galeria">
             <div class="card">
                 <div class="img-box">
-                    <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Antes: Ventilador Antigo">
+                    <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Antes: Ventilador Antigo" onerror="corrigirExtensao(this)">
                 </div>
                 <p>Antes: Ventilador Antigo</p>
             </div>
 
             <div class="card">
                 <div class="img-box">
-                    <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.png" alt="Depois: Ventilador Novo">
+                    <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.jpg" alt="Depois: Ventilador Novo" onerror="corrigirExtensao(this)">
                 </div>
                 <p>Depois: Ventilador Novo</p>
             </div>
 
             <div class="card">
                 <div class="img-box">
-                    <img src="5236443161723305068.jpg" alt="Antes e depois: Manutenção">
+                    <img src="5236443161723305068.jpg" alt="Antes e depois: Manutenção" onerror="corrigirExtensao(this)">
                 </div>
                 <p>Antes e depois: Manutenção</p>
             </div>
 
             <div class="card">
                 <div class="img-box">
-                    <img src="7278812297501217892.jpg" alt="Antes e depois: Conservação">
+                    <img src="7278812297501217892.jpg" alt="Antes e depois: Conservação" onerror="corrigirExtensao(this)">
                 </div>
                 <p>Antes e depois: Conservação</p>
             </div>
@@ -314,6 +314,15 @@
     </div>
 
     <script>
+        function corrigirExtensao(img) {
+            img.onerror = null; 
+            if (img.src.endsWith('.jpg')) {
+                img.src = img.src.replace('.jpg', '.png');
+            } else if (img.src.endsWith('.png')) {
+                img.src = img.src.replace('.png', '.jpg');
+            }
+        }
+
         function votar(qtd) {
             const itens = document.querySelectorAll('#estrelas span');
             const txt = document.getElementById('msg');
