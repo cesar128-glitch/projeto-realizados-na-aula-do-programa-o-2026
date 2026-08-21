@@ -3,175 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hall de Entrada • Projetos 2026</title>
+    <title>Hall de Entrada — Projetos 2026</title>
     <style>
-        :root {
-            --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #111827 50%, #0d1117 100%);
-            --card-bg: rgba(22, 27, 34, 0.75);
-            --border-glow: rgba(88, 166, 255, 0.25);
-            --accent: #58a6ff;
-            --text-main: #f0f6fc;
-            --text-muted: #8b949e;
-        }
-
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            background: var(--bg-gradient);
-            color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0d1117;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.12) 0px, transparent 50%);
+            color: #f3f4f6;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            padding: 2rem 1rem;
         }
 
-        /* Container do Hall com efeito Glassmorphism e animação */
-        .hall-card {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 32px;
+        .hall-wrapper {
             width: 100%;
-            max-width: 1050px;
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glow);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
-            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            max-width: 1100px;
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hall-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 2.5rem;
+            align-items: center;
         }
 
-        /* Lado esquerdo: Conteúdo da entrada */
-        .hall-content {
+        .hall-info {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            gap: 18px;
+            gap: 1.25rem;
         }
 
         .badge {
-            align-self: flex-start;
-            background: rgba(88, 166, 255, 0.12);
-            color: var(--accent);
-            border: 1px solid rgba(88, 166, 255, 0.3);
-            padding: 6px 14px;
-            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 9999px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: #38bdf8;
             font-size: 0.75rem;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
+            width: fit-content;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background-color: #38bdf8;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #38bdf8;
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            line-height: 1.25;
-            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            line-height: 1.15;
+            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            color: #9ca3af;
+            font-size: 1rem;
             line-height: 1.6;
         }
 
-        .status {
-            display: inline-flex;
+        .live-tag {
+            display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            color: #3fb950;
+            gap: 0.5rem;
+            color: #22c55e;
+            font-size: 0.875rem;
             font-weight: 600;
-            margin-top: 6px;
         }
 
-        .dot {
+        .pulse {
             width: 8px;
             height: 8px;
-            background-color: #3fb950;
+            background-color: #22c55e;
             border-radius: 50%;
-            box-shadow: 0 0 10px #3fb950;
-            animation: pulse 1.8s infinite ease-in-out;
+            box-shadow: 0 0 10px #22c55e;
+            animation: pulse-animation 1.5s infinite ease-in-out;
         }
 
-        @keyframes pulse {
+        @keyframes pulse-animation {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.3; transform: scale(1.2); }
+            50% { opacity: 0.3; transform: scale(1.3); }
         }
 
-        /* Lado direito: Vídeo com bloqueio de pausa */
-        .video-container {
+        .video-card {
             position: relative;
-            width: 100%;
-            border-radius: 14px;
+            border-radius: 16px;
             overflow: hidden;
-            background: #000;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            background-color: #000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
         }
 
         video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
             display: block;
-            pointer-events: none; /* Desativa totalmente cliques no vídeo */
+            object-fit: cover;
+            pointer-events: none; /* Impede pausar pelo clique */
             user-select: none;
         }
 
-        /* Responsividade para mobile */
-        @media (max-width: 820px) {
-            .hall-card {
+        @media (max-width: 768px) {
+            .hall-grid {
                 grid-template-columns: 1fr;
-                padding: 28px;
-                gap: 24px;
+                gap: 1.5rem;
             }
-
+            .hall-wrapper {
+                padding: 1.5rem;
+            }
             h1 {
-                font-size: 1.75rem;
+                font-size: 1.875rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <main class="hall-card">
-        <!-- Painel de Recepção -->
-        <article class="hall-content">
-            <span class="badge">2º Ano D • Programação</span>
-            <h1>Hall de Entrada</h1>
-            <p>Espaço de apresentação do projeto desenvolvido em aula. A exibição roda em loop automático e sem interrupções.</p>
-            <div class="status">
-                <span class="dot"></span> Transmissão Contínua
-            </div>
-        </article>
+    <main class="hall-wrapper">
+        <div class="hall-grid">
+            <section class="hall-info">
+                <div class="badge">
+                    <span class="dot"></span>
+                    2º Ano D • Programação
+                </div>
+                <h1>Hall de Entrada</h1>
+                <p>Espaço principal de exibição dos projetos. O vídeo abaixo é executado de forma contínua e sem interrupções.</p>
+                <div class="live-tag">
+                    <span class="pulse"></span> Exibição contínua ativa
+                </div>
+            </section>
 
-        <!-- Player de Vídeo -->
-        <div class="video-container">
-            <video autoplay loop muted playsinline>
-                <source src="./video.mp4" type="video/mp4">
-                Seu navegador não suporta a exibição deste vídeo.
-            </video>
+            <div class="video-card">
+                <video autoplay loop muted playsinline>
+                    <source src="./video.mp4" type="video/mp4">
+                    Seu navegador não suporta a exibição deste vídeo.
+                </video>
+            </div>
         </div>
     </main>
 
