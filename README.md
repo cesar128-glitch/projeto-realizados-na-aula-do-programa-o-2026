@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hall de Entrada — Projetos 2026</title>
+    <title>Hall de Entrada — 2026</title>
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -12,32 +12,30 @@
         }
 
         html, body {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             overflow: hidden;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #050811;
+            background-color: #030712;
             color: #ffffff;
         }
 
-        /* --- TELA INICIAL: HALL DE ENTRADA (100vh) --- */
-        .hall-screen {
+        /* TELA DE START (FULLSCREEN) */
+        .start-screen {
             position: fixed;
             inset: 0;
-            width: 100vw;
-            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
+            padding: 24px;
+            background: radial-gradient(circle at center, #111827 0%, #030712 100%);
             z-index: 10;
-            background: radial-gradient(circle at center, #111827 0%, #050811 100%);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .hall-screen.hidden {
+        .start-screen.hidden {
             opacity: 0;
             transform: scale(1.05);
             pointer-events: none;
@@ -54,10 +52,9 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 24px;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
         }
 
-        h1.main-title {
+        h1.title {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 900;
             line-height: 1.1;
@@ -67,52 +64,48 @@
             -webkit-text-fill-color: transparent;
         }
 
-        p.description {
-            font-size: clamp(1rem, 2vw, 1.25rem);
+        p.subtitle {
+            font-size: 1.1rem;
             color: #94a3b8;
-            max-width: 600px;
+            max-width: 500px;
             margin-bottom: 40px;
             line-height: 1.6;
         }
 
-        /* Botão START Gigante e Neons */
         .btn-start {
-            position: relative;
             padding: 20px 64px;
             font-size: 1.25rem;
             font-weight: 900;
             letter-spacing: 4px;
-            color: #050811;
+            color: #030712;
             background: #38bdf8;
             border: none;
             border-radius: 60px;
             cursor: pointer;
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
-            transition: all 0.4s ease;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+            transition: all 0.3s ease;
         }
 
         .btn-start:hover {
-            transform: translateY(-4px) scale(1.05);
+            transform: translateY(-3px) scale(1.05);
             background: #00f0ff;
-            box-shadow: 0 0 50px rgba(0, 240, 255, 0.9);
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.8);
         }
 
-        /* --- TELA DO VÍDEO (100vh Fullscreen) --- */
-        .video-stage {
+        /* PALCO DO VÍDEO (HALL DE ENTRADA) */
+        .hall-stage {
             position: fixed;
             inset: 0;
-            width: 100vw;
-            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #000;
             opacity: 0;
-            transition: opacity 1s ease;
+            transition: opacity 0.8s ease;
             z-index: 1;
         }
 
-        .video-stage.active {
+        .hall-stage.active {
             opacity: 1;
         }
 
@@ -122,8 +115,8 @@
             height: 80vh;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9), 0 0 20px rgba(56, 189, 248, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
         }
 
         video {
@@ -131,41 +124,39 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            pointer-events: none; /* Bloqueia clique para não pausar */
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- HALL DE ENTRADA -->
-    <section class="hall-screen" id="hallScreen">
+    <!-- TELA INICIAL: START -->
+    <section class="start-screen" id="startScreen">
         <span class="tag">2º Ano D • Programação</span>
-        <h1 class="main-title">HALL DE ENTRADA</h1>
-        <p class="description">Espaço principal de apresentação dos projetos realizados em aula durante o ano letivo.</p>
+        <h1 class="title">HALL DE ENTRADA</h1>
+        <p class="subtitle">Clique no botão abaixo para acessar a exibição do projeto.</p>
         <button class="btn-start" id="btnStart">START</button>
     </section>
 
-    <!-- PALCO DO VÍDEO -->
-    <main class="video-stage" id="videoStage">
+    <!-- PALCO DE EXIBIÇÃO -->
+    <main class="hall-stage" id="hallStage">
         <div class="video-container">
-            <video id="projectVideo" loop muted playsinline>
+            <video id="myVideo" loop muted playsinline>
                 <source src="./video.mp4" type="video/mp4">
-                Seu navegador não suporta a exibição deste vídeo.
+                Seu navegador não suporta este vídeo.
             </video>
         </div>
     </main>
 
     <script>
         const btnStart = document.getElementById('btnStart');
-        const hallScreen = document.getElementById('hallScreen');
-        const videoStage = document.getElementById('videoStage');
-        const video = document.getElementById('projectVideo');
+        const startScreen = document.getElementById('startScreen');
+        const hallStage = document.getElementById('hallStage');
+        const video = document.getElementById('myVideo');
 
         btnStart.addEventListener('click', () => {
-            hallScreen.classList.add('hidden');
-            videoStage.classList.add('active');
-            
-            // Inicia reprodução
+            startScreen.classList.add('hidden');
+            hallStage.classList.add('active');
             video.play();
         });
     </script>
