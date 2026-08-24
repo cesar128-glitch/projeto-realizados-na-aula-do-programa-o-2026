@@ -20,14 +20,12 @@
             align-items: center;
             justify-content: center;
             padding: 2rem;
-            overflow-x: hidden;
         }
 
         .main-card {
             width: 100%;
             max-width: 1100px;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 24px;
             padding: 2.5rem;
@@ -59,9 +57,7 @@
         h1 {
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 900;
-            background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;
         }
 
         p.desc {
@@ -89,7 +85,6 @@
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
         }
 
         video {
@@ -154,7 +149,6 @@
             max-width: 90vw;
             max-height: 85vh;
             border-radius: 12px;
-            box-shadow: 0 0 40px rgba(56, 189, 248, 0.3);
         }
     </style>
 </head>
@@ -164,19 +158,17 @@
         <div class="header">
             <span class="badge">2º Ano D • Programação</span>
             <h1>Hall de Entrada</h1>
-            <p class="desc">Acesse o vídeo de apresentação do projeto usando os controles do player ou selecione uma imagem abaixo para ampliar.</p>
+            <p class="desc">Acesse o vídeo do projeto usando os controles do player ou clique em qualquer imagem abaixo para ampliar.</p>
         </div>
 
         <div class="grid-content">
-            <!-- PLAYER DE VÍDEO COM CONTROLES -->
             <div class="video-box">
                 <video controls playsinline poster="./Gemini_Generated_Image_yl6xrmyl6xrmyl6x.png">
                     <source src="./video.mp4" type="video/mp4">
-                    Navegador não suporta reprodução de vídeo.
+                    Seu navegador não suporta reprodução de vídeo.
                 </video>
             </div>
 
-            <!-- GALERIA DE IMAGENS -->
             <div>
                 <div class="gallery-title">Capturas do Projeto</div>
                 <div class="gallery-grid">
@@ -197,7 +189,6 @@
         </div>
     </main>
 
-    <!-- MODAL PARA EXPANDIR IMAGENS -->
     <div class="modal" id="modal" onclick="closeModal()">
         <img id="modalImg" src="" alt="Imagem Ampliada">
     </div>
