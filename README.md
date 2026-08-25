@@ -59,7 +59,7 @@
             margin-bottom: 1rem;
         }
 
-        /* 4 QUADRADOS EM CIMA (GALERIA PRINCIPAL) */
+        /* 1. OS 4 QUADRADOS NO TOPO */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -94,7 +94,7 @@
             object-fit: cover;
         }
 
-        /* BANNER PROPAGANDA PÓS-AVALIAÇÃO ANOS 90 */
+        /* 2. COMERCIAL PÓS-AVALIAÇÃO ANOS 90 */
         .ad-banner-90s {
             background: linear-gradient(135deg, #ff007f, #7928ca, #00dfd8);
             padding: 3px;
@@ -145,7 +145,7 @@
             border: none;
         }
 
-        /* VÍDEOS RECOMENDADOS DO YOUTUBE */
+        /* 3. VÍDEOS RECOMENDADOS DO YOUTUBE */
         .youtube-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -158,7 +158,7 @@
             }
         }
 
-        /* MODAL DE IMAGEM */
+        /* MODAL PARA EXPANDIR IMAGEM */
         .modal {
             position: fixed;
             inset: 0;
@@ -189,7 +189,7 @@
             <h1>Hall de Entrada</h1>
         </header>
 
-        <!-- 1. OS 4 QUADRADOS EM CIMA (GALERIA DO PROJETO) -->
+        <!-- TOP: 4 QUADRADOS DE IMAGEM -->
         <section>
             <div class="section-title">Capturas do Projeto</div>
             <div class="gallery-grid">
@@ -208,37 +208,37 @@
             </div>
         </section>
 
-        <!-- 2. VÍDEO / COMERCIAL PÓS-AVALIAÇÃO (ANOS 90) -->
+        <!-- MEIO: PROPAGANDA PÓS-AVALIAÇÃO ANOS 90 -->
         <section class="ad-banner-90s">
             <div class="ad-inner">
                 <div>
                     <div class="ad-tag">Pós-Avaliação</div>
                     <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: #fff;">Comercial Anos 90</h2>
                     <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">
-                        Vídeo promocional estilo retrô transmitido após a conclusão da avaliação do projeto.
+                        Vídeo promocional retrô exibido após a avaliação do projeto.
                     </p>
                 </div>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Pós-Avaliação Anos 90" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Comercial Pós-Avaliação Anos 90" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
 
-        <!-- 3. VÍDEOS RECOMENDADOS DO YOUTUBE -->
+        <!-- BOTTOM: VÍDEOS RECOMENDADOS DO YOUTUBE -->
         <section>
             <div class="section-title">Vídeos Recomendados do YouTube</div>
             <div class="youtube-grid">
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Recomendado 1" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Vídeo Recomendado 1" allowfullscreen></iframe>
                 </div>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/L_LUpnjgPso" title="Vídeo Recomendado 2" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube-nocookie.com/embed/L_LUpnjgPso" title="Vídeo Recomendado 2" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- MODAL PARA EXPANDIR IMAGEM -->
+    <!-- MODAL PARA EXPANDIR IMAGENS -->
     <div class="modal" id="modal" onclick="closeModal()">
         <img id="modalImg" src="" alt="Imagem Ampliada">
     </div>
