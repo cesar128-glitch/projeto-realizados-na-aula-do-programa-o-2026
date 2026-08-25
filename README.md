@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hall de Entrada — Central Multimídia</title>
+    <title>Hall de Entrada — 2026</title>
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -59,25 +59,60 @@
             margin-bottom: 1rem;
         }
 
-        /* BANNER PROPAGANDA ANOS 90 */
+        /* 4 QUADRADOS EM CIMA (GALERIA PRINCIPAL) */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .gallery-card {
+            aspect-ratio: 16 / 10;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #1e293b;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* BANNER PROPAGANDA PÓS-AVALIAÇÃO ANOS 90 */
         .ad-banner-90s {
             background: linear-gradient(135deg, #ff007f, #7928ca, #00dfd8);
             padding: 3px;
-            border-radius: 16px;
-            box-shadow: 0 0 25px rgba(255, 0, 127, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.25);
         }
 
         .ad-inner {
             background: #0d1117;
-            border-radius: 13px;
-            padding: 1.5rem;
+            border-radius: 17px;
+            padding: 1.75rem;
             display: grid;
             grid-template-columns: 1fr 1.5fr;
             gap: 1.5rem;
             align-items: center;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             .ad-inner {
                 grid-template-columns: 1fr;
             }
@@ -86,13 +121,13 @@
         .ad-tag {
             background: #ff007f;
             color: #fff;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 900;
-            padding: 2px 8px;
-            border-radius: 4px;
+            padding: 4px 10px;
+            border-radius: 6px;
             text-transform: uppercase;
             width: fit-content;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .video-container {
@@ -110,42 +145,20 @@
             border: none;
         }
 
-        /* GRID DE VÍDEOS ALEATÓRIOS DO YOUTUBE */
+        /* VÍDEOS RECOMENDADOS DO YOUTUBE */
         .youtube-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
         }
 
-        /* GALERIA DE IMAGENS */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
+        @media (max-width: 650px) {
+            .youtube-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .gallery-card {
-            aspect-ratio: 16 / 10;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: #1e293b;
-            cursor: pointer;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .gallery-card:hover {
-            transform: translateY(-4px);
-            border-color: #38bdf8;
-        }
-
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* MODAL */
+        /* MODAL DE IMAGEM */
         .modal {
             position: fixed;
             inset: 0;
@@ -176,34 +189,7 @@
             <h1>Hall de Entrada</h1>
         </header>
 
-        <!-- ESPAÇO PROPAGANDA ANOS 90 -->
-        <section class="ad-banner-90s">
-            <div class="ad-inner">
-                <div>
-                    <div class="ad-tag">Nostalgia 90s</div>
-                    <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Comercial Clássico Anos 90</h2>
-                    <p style="color: #94a3b8; font-size: 0.9rem;">Exibição especial do intervalo comercial retrô pós-avaliação.</p>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/5NV6Rdv1a3E" title="Comercial Anos 90" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- VÍDEOS ALEATÓRIOS DO YOUTUBE -->
-        <section>
-            <div class="section-title">Vídeos Recomendados do YouTube</div>
-            <div class="youtube-grid">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube Video 1" allowfullscreen></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/L_LUpnjgPso" title="YouTube Video 2" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- GALERIA DE IMAGENS -->
+        <!-- 1. OS 4 QUADRADOS EM CIMA (GALERIA DO PROJETO) -->
         <section>
             <div class="section-title">Capturas do Projeto</div>
             <div class="gallery-grid">
@@ -221,8 +207,38 @@
                 </div>
             </div>
         </section>
+
+        <!-- 2. VÍDEO / COMERCIAL PÓS-AVALIAÇÃO (ANOS 90) -->
+        <section class="ad-banner-90s">
+            <div class="ad-inner">
+                <div>
+                    <div class="ad-tag">Pós-Avaliação</div>
+                    <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: #fff;">Comercial Anos 90</h2>
+                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">
+                        Vídeo promocional estilo retrô transmitido após a conclusão da avaliação do projeto.
+                    </p>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Pós-Avaliação Anos 90" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. VÍDEOS RECOMENDADOS DO YOUTUBE -->
+        <section>
+            <div class="section-title">Vídeos Recomendados do YouTube</div>
+            <div class="youtube-grid">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Recomendado 1" allowfullscreen></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/L_LUpnjgPso" title="Vídeo Recomendado 2" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
     </div>
 
+    <!-- MODAL PARA EXPANDIR IMAGEM -->
     <div class="modal" id="modal" onclick="closeModal()">
         <img id="modalImg" src="" alt="Imagem Ampliada">
     </div>
