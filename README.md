@@ -1,8 +1,3 @@
-As imagens ficaram gigantes porque a altura do container estava travada em 320px e a galeria estava configurada em uma única coluna vertical.
-
-Para corrigir isso, ajustei a galeria para exibir os cards lado a lado (em 2 colunas) e diminuí a altura das imagens para 180px, deixando tudo proporcional:
-
-HTML
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,6 +16,8 @@ HTML
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --star-gold: #facc15;
+            --tag-antes: #ef4444;
+            --tag-depois: #22c55e;
         }
 
         * {
@@ -97,35 +94,6 @@ HTML
             line-height: 1.5;
         }
 
-        .status-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 35px;
-        }
-
-        .status-box {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 12px;
-            text-align: center;
-        }
-
-        .status-num {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--accent-color);
-        }
-
-        .status-label {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-top: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
         .titulo-secao {
             color: var(--accent-color);
             font-size: 1.25rem;
@@ -136,7 +104,7 @@ HTML
             gap: 8px;
         }
 
-        /* Galeria Lado a Lado (2 colunas) */
+        /* Galeria em 2 colunas para alinhar Antes / Depois */
         .galeria {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -161,19 +129,31 @@ HTML
 
         .card-header-tag {
             padding: 8px 12px;
-            font-size: 0.7rem;
-            font-weight: 700;
+            font-size: 0.75rem;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: var(--accent-color);
-            background-color: rgba(56, 189, 248, 0.08);
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* Reduzido de 320px para 180px */
+        .tag-antes {
+            color: var(--tag-antes);
+            background-color: rgba(239, 68, 68, 0.1);
+        }
+
+        .tag-depois {
+            color: var(--tag-depois);
+            background-color: rgba(34, 197, 94, 0.1);
+        }
+
+        .tag-geral {
+            color: var(--accent-color);
+            background-color: rgba(56, 189, 248, 0.1);
+        }
+
         .img-box {
             width: 100%;
-            height: 180px;
+            height: 200px;
             background-color: #0b1329;
             position: relative;
             overflow: hidden;
@@ -274,11 +254,11 @@ HTML
         }
 
         @media (max-width: 650px) {
-            .galeria, .video-grid, .status-grid {
+            .galeria, .video-grid {
                 grid-template-columns: 1fr;
             }
-            .img-box {
-                height: 200px;
+            .card-full {
+                grid-column: span 1 !important;
             }
         }
     </style>
@@ -298,70 +278,58 @@ HTML
             O QUE NÓS PODEMOS FAZER PARA TORNAR A NOSSA ESCOLA AINDA MELHOR?
         </div>
 
-        <div class="status-grid">
-            <div class="status-box">
-                <div class="status-num">5</div>
-                <div class="status-label">Fotos Registradas</div>
-            </div>
-            <div class="status-box">
-                <div class="status-num">2</div>
-                <div class="status-label">Vídeos Educativos</div>
-            </div>
-            <div class="status-box">
-                <div class="status-num">100%</div>
-                <div class="status-label">Engajamento</div>
-            </div>
-        </div>
-
         <h2 class="titulo-secao">📸 Galeria do Projeto</h2>
         <div class="galeria">
+            <!-- Par 1: Ventiladores -->
             <div class="card">
-                <div class="card-header-tag">Item #01 • Equipamentos</div>
+                <div class="card-header-tag tag-antes">🔴 ANTES</div>
                 <div class="img-box">
                     <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Antes: Ventilador Antigo" onerror="corrigirExtensao(this)">
                 </div>
                 <div class="card-body">
-                    <div class="card-title">Antes: Ventilador Antigo</div>
+                    <div class="card-title">Ventilador Antigo</div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-header-tag">Item #02 • Substituição</div>
+                <div class="card-header-tag tag-depois">🟢 DEPOIS</div>
                 <div class="img-box">
                     <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.jpg" alt="Depois: Ventilador Novo" onerror="corrigirExtensao(this)">
                 </div>
                 <div class="card-body">
-                    <div class="card-title">Depois: Ventilador Novo</div>
+                    <div class="card-title">Ventilador Novo</div>
+                </div>
+            </div>
+
+            <!-- Par 2: Sala de Aula -->
+            <div class="card">
+                <div class="card-header-tag tag-antes">🔴 ANTES</div>
+                <div class="img-box">
+                    <img src="5236443161723305068.jpg" alt="Antes: Sala Desorganizada" onerror="corrigirExtensao(this)">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Sala Desorganizada</div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-header-tag">Item #03 • Infraestrutura</div>
+                <div class="card-header-tag tag-depois">🟢 DEPOIS</div>
                 <div class="img-box">
-                    <img src="5236443161723305068.jpg" alt="Antes e depois: Manutenção" onerror="corrigirExtensao(this)">
+                    <img src="7278812297501217892.jpg" alt="Depois: Sala Organizada" onerror="corrigirExtensao(this)">
                 </div>
                 <div class="card-body">
-                    <div class="card-title">Antes e depois: Manutenção</div>
+                    <div class="card-title">Sala Conservada</div>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-header-tag">Item #04 • Cuidado Contínuo</div>
-                <div class="img-box">
-                    <img src="7278812297501217892.jpg" alt="Antes e depois: Conservação" onerror="corrigirExtensao(this)">
+            <!-- Foto de Destaque / Restauração -->
+            <div class="card card-full" style="grid-column: span 2;">
+                <div class="card-header-tag tag-geral">⭐ RESULTADO FINAL</div>
+                <div class="img-box" style="height: 240px;">
+                    <img src="3786742617542964504.jpg" alt="Restauração Concluída" onerror="corrigirExtensao(this)">
                 </div>
                 <div class="card-body">
-                    <div class="card-title">Antes e depois: Conservação</div>
-                </div>
-            </div>
-
-            <div class="card" style="grid-column: 1 / -1;">
-                <div class="card-header-tag">Item #05 • Restauração de Ambientes</div>
-                <div class="img-box" style="height: 220px;">
-                    <img src="3786742617542964504.jpg" alt="Antes e depois: Restauração" onerror="corrigirExtensao(this)">
-                </div>
-                <div class="card-body">
-                    <div class="card-title">Antes e depois: Restauração</div>
+                    <div class="card-title">Restauração e Conservação do Ambiente</div>
                 </div>
             </div>
         </div>
