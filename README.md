@@ -231,10 +231,9 @@
             line-height: 1.6;
         }
 
+        /* Oculta apenas links e rodapés automáticos do GitHub sem afetar a página */
         a[href*="github.com"], 
-        .site-footer, 
-        body > div:not(.container), 
-        body > footer:not(.container) {
+        .site-footer {
             display: none !important;
         }
     </style>
