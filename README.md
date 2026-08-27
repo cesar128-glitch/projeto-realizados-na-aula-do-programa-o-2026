@@ -1,183 +1,247 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hall de Entrada — 2026</title>
+    <title>Game do Saber - Preservação Escolar</title>
     <style>
-        *, *::before, *::after {
+        :root {
+            --bg-main: #0b1329;
+            --bg-container: #1e293b;
+            --bg-card: #0f172a;
+            --border-color: #334155;
+            --accent-color: #38bdf8;
+            --accent-gradient: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --star-gold: #facc15;
+        }
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: #080c14;
-            color: #f1f5f9;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
             min-height: 100vh;
-            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 50px 20px;
         }
 
         .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
+            max-width: 960px;
+            width: 100%;
+            background-color: var(--bg-container);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
         header {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 1.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .badge {
-            display: inline-block;
-            padding: 4px 14px;
-            border-radius: 20px;
-            background: rgba(56, 189, 248, 0.15);
-            border: 1px solid rgba(56, 189, 248, 0.4);
-            color: #38bdf8;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .header-title span {
+            font-size: 2.2rem;
         }
 
         h1 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-        }
-
-        .section-title {
-            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-size: 2.2rem;
             font-weight: 800;
-            color: #38bdf8;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
         }
 
-        /* 1. OS 4 QUADRADOS NO TOPO */
-        .gallery-grid {
+        .subtitulo {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .banner {
+            background: var(--accent-gradient);
+            color: #ffffff;
+            padding: 20px 24px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
+            line-height: 1.5;
+        }
+
+        .titulo-secao {
+            color: var(--accent-color);
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .galeria {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 640px) {
+            .galeria {
+                grid-template-columns: 1fr;
             }
         }
 
-        .gallery-card {
-            aspect-ratio: 16 / 10;
+        .card {
+            background-color: var(--bg-card);
             border-radius: 14px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            background: #1e293b;
-            cursor: pointer;
-            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .gallery-card:hover {
-            transform: translateY(-4px);
-            border-color: #38bdf8;
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
         }
 
-        .gallery-card img {
+        .img-box {
+            width: 100%;
+            height: 200px;
+            background-color: #1b273d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
         }
 
-        /* 2. COMERCIAL PÓS-AVALIAÇÃO ANOS 90 */
-        .ad-banner-90s {
-            background: linear-gradient(135deg, #ff007f, #7928ca, #00dfd8);
-            padding: 3px;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(255, 0, 127, 0.25);
+        .card:hover img {
+            transform: scale(1.04);
         }
 
-        .ad-inner {
-            background: #0d1117;
-            border-radius: 17px;
-            padding: 1.75rem;
+        .card p {
+            padding: 16px 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            background-color: var(--bg-card);
+        }
+
+        .videos-container {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        .video-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 1.5rem;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
-        @media (max-width: 850px) {
-            .ad-inner {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .ad-tag {
-            background: #ff007f;
-            color: #fff;
-            font-size: 0.75rem;
-            font-weight: 900;
-            padding: 4px 10px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            width: fit-content;
-            margin-bottom: 0.75rem;
-        }
-
-        .video-container {
-            width: 100%;
+        .video-box {
             aspect-ratio: 16 / 9;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
-            background: #000;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #000;
+            border: 1px solid var(--border-color);
         }
 
-        iframe {
+        .video-box iframe {
             width: 100%;
             height: 100%;
-            border: none;
+            border: 0;
         }
 
-        /* 3. VÍDEOS RECOMENDADOS DO YOUTUBE */
-        .youtube-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+        .avaliacao {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        @media (max-width: 650px) {
-            .youtube-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* MODAL PARA EXPANDIR IMAGEM */
-        .modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.9);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-            padding: 20px;
-        }
-
-        .modal.active {
+        .estrelas {
             display: flex;
+            justify-content: center;
+            gap: 12px;
+            font-size: 2.3rem;
+            cursor: pointer;
+            margin: 15px 0;
+            color: var(--border-color);
+            user-select: none;
         }
 
-        .modal img {
-            max-width: 90vw;
-            max-height: 85vh;
-            border-radius: 12px;
+        .estrelas span {
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .estrelas span:hover {
+            transform: scale(1.25);
+        }
+
+        .estrelas span.ativo {
+            color: var(--star-gold);
+            text-shadow: 0 0 12px rgba(250, 204, 21, 0.5);
+        }
+
+        .mensagem {
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            min-height: 24px;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* Oculta links adicionais do GitHub */
+        a[href*="github.com"], 
+        .site-footer, 
+        body > div:not(.container), 
+        body > footer:not(.container) {
+            display: none !important;
         }
     </style>
 </head>
@@ -185,71 +249,112 @@
 
     <div class="container">
         <header>
-            <span class="badge">2º Ano D • Programação</span>
-            <h1>Hall de Entrada</h1>
+            <div class="header-title">
+                <span>🎮</span>
+                <h1>GAME DO SABER</h1>
+            </div>
+            <p class="subtitulo">NOSSA ESCOLA, NOSSO COMPROMISSO</p>
         </header>
 
-        <!-- TOP: 4 QUADRADOS DE IMAGEM -->
-        <section>
-            <div class="section-title">Capturas do Projeto</div>
-            <div class="gallery-grid">
-                <div class="gallery-card" onclick="openModal('./Gemini_Generated_Image_yl6xrmyl6xrmyl6x.png')">
-                    <img src="./Gemini_Generated_Image_yl6xrmyl6xrmyl6x.png" alt="Captura 1">
+        <div class="banner">
+            O QUE NÓS PODEMOS FAZER PARA TORNAR A NOSSA ESCOLA AINDA MELHOR?
+        </div>
+
+        <h2 class="titulo-secao">📸 Galeria do Projeto</h2>
+        <div class="galeria">
+            <div class="card">
+                <div class="img-box">
+                    <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Antes: Ventilador Antigo" onerror="corrigirExtensao(this)">
                 </div>
-                <div class="gallery-card" onclick="openModal('./Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png')">
-                    <img src="./Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Captura 2">
+                <p>Antes: Ventilador Antigo</p>
+            </div>
+
+            <div class="card">
+                <div class="img-box">
+                    <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.jpg" alt="Depois: Ventilador Novo" onerror="corrigirExtensao(this)">
                 </div>
-                <div class="gallery-card" onclick="openModal('./7278812297501217892.jpg')">
-                    <img src="./7278812297501217892.jpg" alt="Captura 3">
+                <p>Depois: Ventilador Novo</p>
+            </div>
+
+            <div class="card">
+                <div class="img-box">
+                    <img src="5236443161723305068.jpg" alt="Antes e depois: Manutenção" onerror="corrigirExtensao(this)">
                 </div>
-                <div class="gallery-card" onclick="openModal('./5236443161723305068.jpg')">
-                    <img src="./5236443161723305068.jpg" alt="Captura 4">
+                <p>Antes e depois: Manutenção</p>
+            </div>
+
+            <div class="card">
+                <div class="img-box">
+                    <img src="7278812297501217892.jpg" alt="Antes e depois: Conservação" onerror="corrigirExtensao(this)">
+                </div>
+                <p>Antes e depois: Conservação</p>
+            </div>
+
+            <div class="card">
+                <div class="img-box">
+                    <img src="3786742617542964504.jpg" alt="Antes e depois: Restauração" onerror="corrigirExtensao(this)">
+                </div>
+                <p>Antes e depois: Restauração</p>
+            </div>
+        </div>
+
+        <div class="videos-container">
+            <h2 class="titulo-secao">🎬 Vídeos e Recomendações</h2>
+            <div class="video-grid">
+                <div class="video-box">
+                    <iframe src="https://www.youtube-nocookie.com/embed/OzsfOLBmbkU" title="Cuidado com o Patrimônio Escolar" allowfullscreen></iframe>
+                </div>
+                <div class="video-box">
+                    <iframe src="https://www.youtube-nocookie.com/embed/HqFGprxZCwA" title="Conservação da Escola" allowfullscreen></iframe>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- MEIO: PROPAGANDA PÓS-AVALIAÇÃO ANOS 90 -->
-        <section class="ad-banner-90s">
-            <div class="ad-inner">
-                <div>
-                    <div class="ad-tag">Pós-Avaliação</div>
-                    <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: #fff;">Comercial Anos 90</h2>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">
-                        Vídeo promocional retrô exibido após a avaliação do projeto.
-                    </p>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Comercial Pós-Avaliação Anos 90" allowfullscreen></iframe>
-                </div>
+        <div class="avaliacao">
+            <h2 class="titulo-secao" style="justify-content: center;">⭐ Avalie o Nosso Projeto</h2>
+            <div class="estrelas" id="estrelas">
+                <span onclick="votar(1)">★</span>
+                <span onclick="votar(2)">★</span>
+                <span onclick="votar(3)">★</span>
+                <span onclick="votar(4)">★</span>
+                <span onclick="votar(5)">★</span>
             </div>
-        </section>
+            <div class="mensagem" id="msg">Clique nas estrelas para avaliar!</div>
+        </div>
 
-        <!-- BOTTOM: VÍDEOS RECOMENDADOS DO YOUTUBE -->
-        <section>
-            <div class="section-title">Vídeos Recomendados do YouTube</div>
-            <div class="youtube-grid">
-                <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Vídeo Recomendado 1" allowfullscreen></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/L_LUpnjgPso" title="Vídeo Recomendado 2" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- MODAL PARA EXPANDIR IMAGENS -->
-    <div class="modal" id="modal" onclick="closeModal()">
-        <img id="modalImg" src="" alt="Imagem Ampliada">
+        <footer>
+            O cuidado com o patrimônio da escola é responsabilidade de todos os estudantes e comunidade.<br>
+            © 2026 Game do Saber.
+        </footer>
     </div>
 
     <script>
-        function openModal(src) {
-            document.getElementById('modalImg').src = src;
-            document.getElementById('modal').classList.add('active');
+        function corrigirExtensao(img) {
+            img.onerror = null; 
+            if (img.src.endsWith('.jpg')) {
+                img.src = img.src.replace('.jpg', '.png');
+            } else if (img.src.endsWith('.png')) {
+                img.src = img.src.replace('.png', '.jpg');
+            }
         }
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
+
+        function votar(qtd) {
+            const itens = document.querySelectorAll('#estrelas span');
+            const txt = document.getElementById('msg');
+            
+            itens.forEach((el, idx) => {
+                if (idx < qtd) {
+                    el.classList.add('ativo');
+                } else {
+                    el.classList.remove('ativo');
+                }
+            });
+
+            txt.textContent = "Obrigado pela avaliação! Redirecionando para a música...";
+
+            setTimeout(() => {
+                window.location.href = 'https://www.youtube.com/watch?v=L_jWHffIx5E';
+            }, 1000);
         }
     </script>
 
