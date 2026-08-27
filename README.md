@@ -16,7 +16,6 @@
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --star-gold: #facc15;
-            --success-color: #4ade80;
         }
 
         * {
