@@ -31,16 +31,16 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 50px 20px;
+            padding: 40px 15px;
         }
 
         .container {
-            max-width: 960px;
+            max-width: 650px;
             width: 100%;
             background-color: var(--bg-container);
             border: 1px solid var(--border-color);
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 30px 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
@@ -65,7 +65,7 @@
 
         h1 {
             color: var(--accent-color);
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -73,7 +73,7 @@
 
         .subtitulo {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 2px;
         }
@@ -81,19 +81,19 @@
         .banner {
             background: var(--accent-gradient);
             color: #ffffff;
-            padding: 20px 24px;
+            padding: 20px 20px;
             border-radius: 12px;
             text-align: center;
             font-weight: 700;
-            font-size: 1.05rem;
-            margin-bottom: 40px;
+            font-size: 1rem;
+            margin-bottom: 35px;
             box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
             line-height: 1.5;
         }
 
         .titulo-secao {
             color: var(--accent-color);
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 20px;
             display: flex;
@@ -102,16 +102,10 @@
         }
 
         .galeria {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
             margin-bottom: 40px;
-        }
-
-        @media (max-width: 640px) {
-            .galeria {
-                grid-template-columns: 1fr;
-            }
         }
 
         .card {
@@ -125,14 +119,14 @@
         }
 
         .card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
             border-color: var(--accent-color);
             box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
         }
 
         .img-box {
             width: 100%;
-            height: 200px;
+            height: 260px;
             background-color: #1b273d;
             position: relative;
             overflow: hidden;
@@ -147,7 +141,7 @@
         }
 
         .card:hover img {
-            transform: scale(1.04);
+            transform: scale(1.03);
         }
 
         .card p {
@@ -161,19 +155,20 @@
 
         .videos-container {
             background-color: var(--bg-card);
-            padding: 30px;
+            padding: 25px;
             border-radius: 16px;
             border: 1px solid var(--border-color);
             margin-bottom: 40px;
         }
 
         .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 20px;
         }
 
         .video-box {
+            width: 100%;
             aspect-ratio: 16 / 9;
             border-radius: 10px;
             overflow: hidden;
@@ -189,7 +184,7 @@
 
         .avaliacao {
             background-color: var(--bg-card);
-            padding: 30px;
+            padding: 25px;
             border-radius: 16px;
             border: 1px solid var(--border-color);
             text-align: center;
@@ -236,7 +231,6 @@
             line-height: 1.6;
         }
 
-        /* Oculta links adicionais do GitHub */
         a[href*="github.com"], 
         .site-footer, 
         body > div:not(.container), 
