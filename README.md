@@ -1,3 +1,8 @@
+As imagens ficaram gigantes porque a altura do container estava travada em 320px e a galeria estava configurada em uma única coluna vertical.
+
+Para corrigir isso, ajustei a galeria para exibir os cards lado a lado (em 2 colunas) e diminuí a altura das imagens para 180px, deixando tudo proporcional:
+
+HTML
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,7 +21,6 @@
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --star-gold: #facc15;
-            --success-color: #4ade80;
         }
 
         * {
@@ -33,23 +37,23 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 40px 20px;
+            padding: 30px 15px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 850px;
             width: 100%;
             background-color: var(--bg-container);
             border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px 30px;
+            border-radius: 20px;
+            padding: 30px 20px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
         }
 
         header {
             text-align: center;
-            margin-bottom: 35px;
-            padding-bottom: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -57,116 +61,119 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 14px;
-            margin-bottom: 10px;
+            gap: 12px;
+            margin-bottom: 8px;
         }
 
         .header-title span {
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
 
         h1 {
             color: var(--accent-color);
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         .subtitulo {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
 
         .banner {
             background: var(--accent-gradient);
             color: #ffffff;
-            padding: 24px;
-            border-radius: 16px;
+            padding: 18px;
+            border-radius: 14px;
             text-align: center;
             font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.35);
-            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
+            line-height: 1.5;
         }
 
         .status-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 40px;
+            gap: 12px;
+            margin-bottom: 35px;
         }
 
         .status-box {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 16px;
+            border-radius: 12px;
+            padding: 12px;
             text-align: center;
         }
 
         .status-num {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--accent-color);
         }
 
         .status-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
-            margin-top: 4px;
+            margin-top: 2px;
             text-transform: uppercase;
             font-weight: 600;
         }
 
         .titulo-secao {
             color: var(--accent-color);
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
+        /* Galeria Lado a Lado (2 colunas) */
         .galeria {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            margin-bottom: 50px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
         .card {
             background-color: var(--bg-card);
-            border-radius: 16px;
+            border-radius: 14px;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
             transform: translateY(-4px);
             border-color: var(--border-highlight);
-            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.15);
         }
 
         .card-header-tag {
-            padding: 10px 16px;
-            font-size: 0.75rem;
+            padding: 8px 12px;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             color: var(--accent-color);
             background-color: rgba(56, 189, 248, 0.08);
             border-bottom: 1px solid var(--border-color);
         }
 
+        /* Reduzido de 320px para 180px */
         .img-box {
             width: 100%;
-            height: 320px;
+            height: 180px;
             background-color: #0b1329;
             position: relative;
             overflow: hidden;
@@ -177,42 +184,39 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .card:hover img {
-            transform: scale(1.03);
         }
 
         .card-body {
-            padding: 18px;
+            padding: 12px;
             text-align: center;
+            background-color: var(--bg-card);
+            margin-top: auto;
         }
 
         .card-title {
-            font-weight: 700;
-            font-size: 1.05rem;
+            font-weight: 600;
+            font-size: 0.9rem;
             color: var(--text-primary);
         }
 
         .videos-container {
             background-color: var(--bg-card);
-            padding: 30px;
-            border-radius: 18px;
+            padding: 20px;
+            border-radius: 16px;
             border: 1px solid var(--border-color);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .video-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
 
         .video-box {
             width: 100%;
             aspect-ratio: 16 / 9;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             background-color: #000;
             border: 1px solid var(--border-color);
@@ -226,64 +230,55 @@
 
         .avaliacao {
             background-color: var(--bg-card);
-            padding: 35px 25px;
-            border-radius: 18px;
+            padding: 25px;
+            border-radius: 16px;
             border: 1px solid var(--border-color);
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .estrelas {
             display: flex;
             justify-content: center;
-            gap: 14px;
-            font-size: 2.5rem;
+            gap: 10px;
+            font-size: 2.2rem;
             cursor: pointer;
-            margin: 20px 0;
+            margin: 15px 0;
             color: var(--border-color);
             user-select: none;
         }
 
-        .estrelas span {
-            transition: transform 0.2s ease, color 0.2s ease;
-        }
-
-        .estrelas span:hover,
         .estrelas span.ativo {
             color: var(--star-gold);
-            text-shadow: 0 0 15px rgba(250, 204, 21, 0.6);
-        }
-
-        .estrelas span:hover {
-            transform: scale(1.25);
+            text-shadow: 0 0 12px rgba(250, 204, 21, 0.5);
         }
 
         .mensagem {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--accent-color);
-            min-height: 28px;
+            min-height: 24px;
             font-weight: 600;
         }
 
         footer {
             text-align: center;
-            padding-top: 25px;
+            padding-top: 20px;
             border-top: 1px solid var(--border-color);
             color: var(--text-secondary);
-            font-size: 0.85rem;
-            line-height: 1.7;
+            font-size: 0.8rem;
+            line-height: 1.6;
         }
 
         a[href*="github.com"] {
             display: none !important;
         }
 
-        @media (max-width: 600px) {
-            .status-grid {
+        @media (max-width: 650px) {
+            .galeria, .video-grid, .status-grid {
                 grid-template-columns: 1fr;
             }
             .img-box {
-                height: 230px;
+                height: 200px;
             }
         }
     </style>
@@ -360,9 +355,9 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" style="grid-column: 1 / -1;">
                 <div class="card-header-tag">Item #05 • Restauração de Ambientes</div>
-                <div class="img-box">
+                <div class="img-box" style="height: 220px;">
                     <img src="3786742617542964504.jpg" alt="Antes e depois: Restauração" onerror="corrigirExtensao(this)">
                 </div>
                 <div class="card-body">
