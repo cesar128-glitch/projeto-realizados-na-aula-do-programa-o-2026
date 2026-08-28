@@ -169,7 +169,6 @@
             aspect-ratio: 16 / 9;
             background-color: #0b1329;
             overflow: hidden;
-            position: relative;
         }
 
         .card img {
@@ -177,9 +176,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            border: 0;
-            background-color: #0b1329;
-            color: transparent;
         }
 
         .card-body {
@@ -311,7 +307,7 @@
             <div class="card">
                 <div class="card-header-tag">ANTES • Equipamentos</div>
                 <div class="img-box">
-                    <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Antes: Ventilador Antigo" onerror="tentarOutrasExtensoes(this)">
+                    <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Ventilador Antigo" onerror="corrigirUmaVez(this)">
                 </div>
                 <div class="card-body">
                     <div class="card-title">Ventilador Antigo</div>
@@ -321,7 +317,7 @@
             <div class="card">
                 <div class="card-header-tag">DEPOIS • Substituição</div>
                 <div class="img-box">
-                    <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.jpg" alt="Depois: Ventilador Novo" onerror="tentarOutrasExtensoes(this)">
+                    <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.png" alt="Ventilador Novo" onerror="corrigirUmaVez(this)">
                 </div>
                 <div class="card-body">
                     <div class="card-title">Ventilador Novo</div>
@@ -329,29 +325,29 @@
             </div>
 
             <div class="card">
-                <div class="card-header-tag">ANTES • Sala Desorganizada</div>
+                <div class="card-header-tag">ANTES • Sala Bagunçada</div>
                 <div class="img-box">
-                    <img src="5236443161723305068.jpg" alt="Sala Desorganizada" onerror="tentarOutrasExtensoes(this)">
+                    <img src="5236443161723305068.jpg" alt="Antes: Necessitando de Manutenção" onerror="corrigirUmaVez(this)">
                 </div>
                 <div class="card-body">
-                    <div class="card-title">Sala Desorganizada</div>
+                    <div class="card-title">Antes: Necessitando de Manutenção</div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-header-tag">DEPOIS • Sala Conservada</div>
+                <div class="card-header-tag">DEPOIS • Sala Organizada</div>
                 <div class="img-box">
-                    <img src="7278812297501217892.jpg" alt="Sala Conservada" onerror="tentarOutrasExtensoes(this)">
+                    <img src="7278812297501217892.jpg" alt="Depois: Conservação e Ordem" onerror="corrigirUmaVez(this)">
                 </div>
                 <div class="card-body">
-                    <div class="card-title">Sala Conservada</div>
+                    <div class="card-title">Depois: Conservação e Ordem</div>
                 </div>
             </div>
 
             <div class="card" style="grid-column: 1 / -1;">
-                <div class="card-header-tag">⭐ RESULTADO FINAL</div>
+                <div class="card-header-tag">PROCESSO • Restauração</div>
                 <div class="img-box">
-                    <img src="3786742617542964504.jpg" alt="Restauração e Conservação do Ambiente" onerror="tentarOutrasExtensoes(this)">
+                    <img src="3786742617542964504.jpg" alt="Restauração e Conservação do Ambiente" onerror="corrigirUmaVez(this)">
                 </div>
                 <div class="card-body">
                     <div class="card-title">Restauração e Conservação do Ambiente</div>
@@ -390,18 +386,14 @@
     </div>
 
     <script>
-        function tentarOutrasExtensoes(img) {
-            const extensoes = ['.jpg', '.png', '.jpeg', '.webp', '.PNG', '.JPG'];
-            let tentativaAtual = parseInt(img.getAttribute('data-tentativa') || '0');
-            
-            let urlSemExtensao = img.src.substring(0, img.src.lastIndexOf('.'));
-            if (urlSemExtensao === '') urlSemExtensao = img.src;
-
-            if (tentativaAtual < extensoes.length) {
-                img.setAttribute('data-tentativa', tentativaAtual + 1);
-                img.src = urlSemExtensao + extensoes[tentativaAtual];
-            } else {
-                img.onerror = null;
+        function corrigirUmaVez(img) {
+            if (!img.dataset.tentou) {
+                img.dataset.tentou = "true";
+                if (img.src.endsWith('.jpg')) {
+                    img.src = img.src.replace('.jpg', '.png');
+                } else if (img.src.endsWith('.png')) {
+                    img.src = img.src.replace('.png', '.jpg');
+                }
             }
         }
 
