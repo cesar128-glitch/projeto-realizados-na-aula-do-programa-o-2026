@@ -131,7 +131,6 @@
             gap: 8px;
         }
 
-        /* Galeria em 2 Colunas Lado a Lado */
         .galeria {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -165,12 +164,12 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* Proporção 16:9 fixa para não esticar a imagem */
         .img-box {
             width: 100%;
             aspect-ratio: 16 / 9;
             background-color: #0b1329;
             overflow: hidden;
+            position: relative;
         }
 
         .card img {
@@ -178,6 +177,9 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            border: 0;
+            background-color: #0b1329;
+            color: transparent;
         }
 
         .card-body {
@@ -306,11 +308,10 @@
 
         <h2 class="titulo-secao">📸 Galeria do Projeto</h2>
         <div class="galeria">
-            <!-- Par 1: Ventilador -->
             <div class="card">
                 <div class="card-header-tag">ANTES • Equipamentos</div>
                 <div class="img-box">
-                    <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Antes: Ventilador Antigo" onerror="corrigirExtensao(this)">
+                    <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Antes: Ventilador Antigo" onerror="tentarOutrasExtensoes(this)">
                 </div>
                 <div class="card-body">
                     <div class="card-title">Ventilador Antigo</div>
@@ -320,42 +321,40 @@
             <div class="card">
                 <div class="card-header-tag">DEPOIS • Substituição</div>
                 <div class="img-box">
-                    <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.jpg" alt="Depois: Ventilador Novo" onerror="corrigirExtensao(this)">
+                    <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.jpg" alt="Depois: Ventilador Novo" onerror="tentarOutrasExtensoes(this)">
                 </div>
                 <div class="card-body">
                     <div class="card-title">Ventilador Novo</div>
                 </div>
             </div>
 
-            <!-- Par 2: Sala de Aula (Lado a Lado) -->
             <div class="card">
-                <div class="card-header-tag">ANTES • Sala Bagunçada</div>
+                <div class="card-header-tag">ANTES • Sala Desorganizada</div>
                 <div class="img-box">
-                    <img src="5236443161723305068.jpg" alt="Antes: Manutenção" onerror="corrigirExtensao(this)">
+                    <img src="5236443161723305068.jpg" alt="Sala Desorganizada" onerror="tentarOutrasExtensoes(this)">
                 </div>
                 <div class="card-body">
-                    <div class="card-title">Antes: Necessitando de Manutenção</div>
+                    <div class="card-title">Sala Desorganizada</div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-header-tag">DEPOIS • Sala Organizada</div>
+                <div class="card-header-tag">DEPOIS • Sala Conservada</div>
                 <div class="img-box">
-                    <img src="7278812297501217892.jpg" alt="Depois: Conservação" onerror="corrigirExtensao(this)">
+                    <img src="7278812297501217892.jpg" alt="Sala Conservada" onerror="tentarOutrasExtensoes(this)">
                 </div>
                 <div class="card-body">
-                    <div class="card-title">Depois: Conservação e Ordem</div>
+                    <div class="card-title">Sala Conservada</div>
                 </div>
             </div>
 
-            <!-- Imagem Final -->
             <div class="card" style="grid-column: 1 / -1;">
-                <div class="card-header-tag">PROCESSO • Restauração</div>
+                <div class="card-header-tag">⭐ RESULTADO FINAL</div>
                 <div class="img-box">
-                    <img src="3786742617542964504.jpg" alt="Antes e depois: Restauração" onerror="corrigirExtensao(this)">
+                    <img src="3786742617542964504.jpg" alt="Restauração e Conservação do Ambiente" onerror="tentarOutrasExtensoes(this)">
                 </div>
                 <div class="card-body">
-                    <div class="card-title">Restauração de Ambientes</div>
+                    <div class="card-title">Restauração e Conservação do Ambiente</div>
                 </div>
             </div>
         </div>
@@ -391,12 +390,18 @@
     </div>
 
     <script>
-        function corrigirExtensao(img) {
-            img.onerror = null; 
-            if (img.src.endsWith('.jpg')) {
-                img.src = img.src.replace('.jpg', '.png');
-            } else if (img.src.endsWith('.png')) {
-                img.src = img.src.replace('.png', '.jpg');
+        function tentarOutrasExtensoes(img) {
+            const extensoes = ['.jpg', '.png', '.jpeg', '.webp', '.PNG', '.JPG'];
+            let tentativaAtual = parseInt(img.getAttribute('data-tentativa') || '0');
+            
+            let urlSemExtensao = img.src.substring(0, img.src.lastIndexOf('.'));
+            if (urlSemExtensao === '') urlSemExtensao = img.src;
+
+            if (tentativaAtual < extensoes.length) {
+                img.setAttribute('data-tentativa', tentativaAtual + 1);
+                img.src = urlSemExtensao + extensoes[tentativaAtual];
+            } else {
+                img.onerror = null;
             }
         }
 
