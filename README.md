@@ -317,7 +317,7 @@
             <div class="card">
                 <div class="card-header-tag">DEPOIS • Substituição</div>
                 <div class="img-box">
-                    <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.png" alt="Ventilador Novo" onerror="corrigirUmaVez(this)">
+                    <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.jpg" alt="Ventilador Novo" onerror="corrigirUmaVez(this)">
                 </div>
                 <div class="card-body">
                     <div class="card-title">Ventilador Novo</div>
@@ -345,9 +345,9 @@
             </div>
 
             <div class="card" style="grid-column: 1 / -1;">
-                <div class="card-header-tag">PROCESSO • Restauração</div>
+                <div class="card-header-tag">⭐ RESULTADO FINAL</div>
                 <div class="img-box">
-                    <img src="3786742617542964504.jpg" alt="Restauração e Conservação do Ambiente" onerror="corrigirUmaVez(this)">
+                    <img src="watermarked_img_3786742617542964504.jpg" alt="Restauração e Conservação do Ambiente" onerror="corrigirUmaVez(this)">
                 </div>
                 <div class="card-body">
                     <div class="card-title">Restauração e Conservação do Ambiente</div>
