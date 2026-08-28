@@ -16,8 +16,6 @@
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --star-gold: #facc15;
-            --tag-antes: #ef4444;
-            --tag-depois: #22c55e;
         }
 
         * {
@@ -38,7 +36,7 @@
         }
 
         .container {
-            max-width: 850px;
+            max-width: 900px;
             width: 100%;
             background-color: var(--bg-container);
             border: 1px solid var(--border-color);
@@ -94,6 +92,35 @@
             line-height: 1.5;
         }
 
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .status-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .status-num {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .status-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
         .titulo-secao {
             color: var(--accent-color);
             font-size: 1.25rem;
@@ -104,7 +131,7 @@
             gap: 8px;
         }
 
-        /* Galeria em 2 colunas para alinhar Antes / Depois */
+        /* Galeria em 2 Colunas Lado a Lado */
         .galeria {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -117,9 +144,9 @@
             border-radius: 14px;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            transition: transform 0.25s ease, border-color 0.25s ease;
             display: flex;
             flex-direction: column;
+            transition: transform 0.25s ease, border-color 0.25s ease;
         }
 
         .card:hover {
@@ -130,32 +157,19 @@
         .card-header-tag {
             padding: 8px 12px;
             font-size: 0.75rem;
-            font-weight: 800;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            color: var(--accent-color);
+            background-color: rgba(56, 189, 248, 0.08);
             border-bottom: 1px solid var(--border-color);
         }
 
-        .tag-antes {
-            color: var(--tag-antes);
-            background-color: rgba(239, 68, 68, 0.1);
-        }
-
-        .tag-depois {
-            color: var(--tag-depois);
-            background-color: rgba(34, 197, 94, 0.1);
-        }
-
-        .tag-geral {
-            color: var(--accent-color);
-            background-color: rgba(56, 189, 248, 0.1);
-        }
-
+        /* Proporção 16:9 fixa para não esticar a imagem */
         .img-box {
             width: 100%;
-            height: 200px;
+            aspect-ratio: 16 / 9;
             background-color: #0b1329;
-            position: relative;
             overflow: hidden;
         }
 
@@ -253,12 +267,9 @@
             display: none !important;
         }
 
-        @media (max-width: 650px) {
-            .galeria, .video-grid {
+        @media (max-width: 550px) {
+            .galeria, .video-grid, .status-grid {
                 grid-template-columns: 1fr;
-            }
-            .card-full {
-                grid-column: span 1 !important;
             }
         }
     </style>
@@ -278,11 +289,26 @@
             O QUE NÓS PODEMOS FAZER PARA TORNAR A NOSSA ESCOLA AINDA MELHOR?
         </div>
 
+        <div class="status-grid">
+            <div class="status-box">
+                <div class="status-num">5</div>
+                <div class="status-label">Fotos Registradas</div>
+            </div>
+            <div class="status-box">
+                <div class="status-num">2</div>
+                <div class="status-label">Vídeos Educativos</div>
+            </div>
+            <div class="status-box">
+                <div class="status-num">100%</div>
+                <div class="status-label">Engajamento</div>
+            </div>
+        </div>
+
         <h2 class="titulo-secao">📸 Galeria do Projeto</h2>
         <div class="galeria">
-            <!-- Par 1: Ventiladores -->
+            <!-- Par 1: Ventilador -->
             <div class="card">
-                <div class="card-header-tag tag-antes">🔴 ANTES</div>
+                <div class="card-header-tag">ANTES • Equipamentos</div>
                 <div class="img-box">
                     <img src="Gemini_Generated_Image_7yo3fo7yo3fo7yo3.png" alt="Antes: Ventilador Antigo" onerror="corrigirExtensao(this)">
                 </div>
@@ -292,7 +318,7 @@
             </div>
 
             <div class="card">
-                <div class="card-header-tag tag-depois">🟢 DEPOIS</div>
+                <div class="card-header-tag">DEPOIS • Substituição</div>
                 <div class="img-box">
                     <img src="Gemini_Generated_Image_yl6xrmyl6xrmyl6x.jpg" alt="Depois: Ventilador Novo" onerror="corrigirExtensao(this)">
                 </div>
@@ -301,35 +327,35 @@
                 </div>
             </div>
 
-            <!-- Par 2: Sala de Aula -->
+            <!-- Par 2: Sala de Aula (Lado a Lado) -->
             <div class="card">
-                <div class="card-header-tag tag-antes">🔴 ANTES</div>
+                <div class="card-header-tag">ANTES • Sala Bagunçada</div>
                 <div class="img-box">
-                    <img src="5236443161723305068.jpg" alt="Antes: Sala Desorganizada" onerror="corrigirExtensao(this)">
+                    <img src="5236443161723305068.jpg" alt="Antes: Manutenção" onerror="corrigirExtensao(this)">
                 </div>
                 <div class="card-body">
-                    <div class="card-title">Sala Desorganizada</div>
+                    <div class="card-title">Antes: Necessitando de Manutenção</div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-header-tag tag-depois">🟢 DEPOIS</div>
+                <div class="card-header-tag">DEPOIS • Sala Organizada</div>
                 <div class="img-box">
-                    <img src="7278812297501217892.jpg" alt="Depois: Sala Organizada" onerror="corrigirExtensao(this)">
+                    <img src="7278812297501217892.jpg" alt="Depois: Conservação" onerror="corrigirExtensao(this)">
                 </div>
                 <div class="card-body">
-                    <div class="card-title">Sala Conservada</div>
+                    <div class="card-title">Depois: Conservação e Ordem</div>
                 </div>
             </div>
 
-            <!-- Foto de Destaque / Restauração -->
-            <div class="card card-full" style="grid-column: span 2;">
-                <div class="card-header-tag tag-geral">⭐ RESULTADO FINAL</div>
-                <div class="img-box" style="height: 240px;">
-                    <img src="3786742617542964504.jpg" alt="Restauração Concluída" onerror="corrigirExtensao(this)">
+            <!-- Imagem Final -->
+            <div class="card" style="grid-column: 1 / -1;">
+                <div class="card-header-tag">PROCESSO • Restauração</div>
+                <div class="img-box">
+                    <img src="3786742617542964504.jpg" alt="Antes e depois: Restauração" onerror="corrigirExtensao(this)">
                 </div>
                 <div class="card-body">
-                    <div class="card-title">Restauração e Conservação do Ambiente</div>
+                    <div class="card-title">Restauração de Ambientes</div>
                 </div>
             </div>
         </div>
